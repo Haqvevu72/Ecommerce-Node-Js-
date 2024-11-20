@@ -10,7 +10,7 @@ const router = express.Router();
 router.use(authMiddleware);  // All routes will require token validation
 
 // Create or update basket (token required)
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
   const { productId, quantity } = req.body;  // Product ID and quantity to add to the basket
   const userId = req.user._id;  // User ID from the validated token
 
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
 });
 
 // View basket (token required)
-router.get('/', async (req, res) => {
+router.get('/view', async (req, res) => {
   const userId = req.user._id;  // Get user ID from validated token
 
   try {

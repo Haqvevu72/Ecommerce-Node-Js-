@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const basketSchema = new mongoose.Schema({
   products: [
     {
-      productID: {
+      productId: {
         type: mongoose.Schema.Types.ObjectId, // Reference to the Product model
         ref: 'Product',
         required: true,
@@ -24,13 +24,13 @@ const basketSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true,
+    // required: true,
     min: 0, // Minimum price of 0
   },
   currency: {
     type: String,
     enum: ["$", "€", "₼"],
-    required: true,
+    // required: true,
   },
 });
 
